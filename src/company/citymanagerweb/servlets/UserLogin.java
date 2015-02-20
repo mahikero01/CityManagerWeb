@@ -27,6 +27,7 @@ public class UserLogin extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("deprecation")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uid = "authorizeduser";
 		int authLevel = 1;
@@ -37,8 +38,10 @@ public class UserLogin extends HttpServlet {
 		
 		if ( authLevel < 1 || uid == null || uid == "" ) {
 			response.sendRedirect("Login.html");
+			//response.sendRedirect(response.encodeRedirectUrl("Login.html"));
 		} else {
 			response.sendRedirect("/CityManagerWeb/destinationpage.do");
+			//response.sendRedirect(response.encodeRedirectUrl("/CityManagerWeb/destinationpage.do"));
 		}
 	}
 
