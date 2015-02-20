@@ -21,6 +21,7 @@
     <param-name>initialseed</param-name>
     <param-value>2</param-value>
   </context-param>
+  <se
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
