@@ -46,7 +46,7 @@ public class LoginWithCookieInfo extends HttpServlet {
 		StringBuilder sb = new StringBuilder("");
 		sb.append("<html><body>");
 		sb.append("<form id='frmLogin name='frmLogin' "
-				+ "action='/CityManagerWeb/userlogincookies.do "
+				+ "action='/CityManagerWeb/userlogincookies.do' "
 				+ "method='post'>");
 		sb.append("<table>");
 		sb.append("<tr><td><span>Username:</span></td>"
