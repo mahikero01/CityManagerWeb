@@ -23,11 +23,11 @@
   </context-param>
   <context-param>
   	<param-name>dbuserid</param-name>
-  	<param-value>dbuser</param-value>
+  	<param-value>test</param-value>
   </context-param>
    <context-param>
   	<param-name>dbuserpwd</param-name>
-  	<param-value>12dbuser</param-value>
+  	<param-value>test</param-value>
   </context-param>
    <context-param>
   	<param-name>dbinitcat</param-name>
