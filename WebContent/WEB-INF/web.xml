@@ -25,7 +25,6 @@
     <session-timeout>20</session-timeout>
     <cookie-config>
       <http-only>true</http-only>
-      <secure>true</secure>
       <max-age>23</max-age>
     </cookie-config>
     <tracking-mode>COOKIE</tracking-mode>

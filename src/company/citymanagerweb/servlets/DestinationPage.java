@@ -33,6 +33,7 @@ public class DestinationPage extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		HttpSession s = request.getSession();
 		
+		
 		if (s != null && !s.isNew() && s.getAttribute("userName") != null ) {
 			String uid = (String)s.getAttribute("userName");
 			out.println("<html><body><span>Welcome</span>&nbsp;<strong>"
