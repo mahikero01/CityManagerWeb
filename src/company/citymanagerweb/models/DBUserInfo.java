@@ -1,4 +1,4 @@
-package company.citymanager.models;
+package company.citymanagerweb.models;
 
 public abstract class DBUserInfo {
 	private String uid;

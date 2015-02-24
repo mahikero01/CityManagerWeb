@@ -1,4 +1,4 @@
-package company.citymanager.models;
+package company.citymanagerweb.models;
 
 import java.io.Serializable;
 import java.sql.Connection;

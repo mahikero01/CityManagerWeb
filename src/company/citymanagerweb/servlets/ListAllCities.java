@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import company.citymanager.models.DBManager;
-import company.citymanager.models.MySQLServerConnectionBehavior;
-import company.citymanager.models.ServerConnectionBehavior;
+import company.citymanagerweb.models.DBManager;
+import company.citymanagerweb.models.MySQLServerConnectionBehavior;
+import company.citymanagerweb.models.ServerConnectionBehavior;
 
 /**
  * Servlet implementation class ListAllCities
