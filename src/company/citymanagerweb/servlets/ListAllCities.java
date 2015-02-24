@@ -33,7 +33,7 @@ public class ListAllCities extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		StringBuilder sb = new StringBuilder("<html><body>");
-		
+		/*
 		String uid = getServletContext().getInitParameter("dbuserid");
 		String pwd = getServletContext().getInitParameter("dbuserpwd");
 		String cat = getServletContext().getInitParameter("dbinitcat");
@@ -43,7 +43,7 @@ public class ListAllCities extends HttpServlet {
 		System.out.println(scb.getConnectionURL());
 		
 		DBManager dbm = new DBManager(scb);
-		
+		*/
 		try {
 			if ( !dbm.isConnected() ) {
 				if ( !dbm.openConnection() ) {

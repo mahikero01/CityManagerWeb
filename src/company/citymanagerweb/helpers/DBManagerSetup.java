@@ -6,6 +6,8 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import company.citymanagerweb.models.DBManager;
+import company.citymanagerweb.models.MySQLServerConnectionBehavior;
+import company.citymanagerweb.models.ServerConnectionBehavior;
 
 /**
  * Application Lifecycle Listener implementation class DBManagerSetup
@@ -46,6 +48,13 @@ public class DBManagerSetup implements ServletContextListener {
         String uid = sc.getInitParameter("dbuserid");
         String pwd = sc.getInitParameter("dbuserpwd");
         String cat = sc.getInitParameter("dbinitcat");
+        
+        ServerConnectionBehavior scb = new MySQLServerConnectionBehavior(uid, pwd, cat);
+        dbm = new DBManager(scb);
+        
+        sc.setAttribute("WorldDBManager", dbm);
+        
+        System.out.println("World DB saved in context");
     }
 	
 }
