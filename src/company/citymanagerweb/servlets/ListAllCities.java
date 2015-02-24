@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import company.citymanagerweb.helpers.DBWorldQueries;
 import company.citymanagerweb.models.DBManager;
 import company.citymanagerweb.models.MySQLServerConnectionBehavior;
 import company.citymanagerweb.models.ServerConnectionBehavior;
@@ -33,6 +34,8 @@ public class ListAllCities extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		StringBuilder sb = new StringBuilder("<html><body>");
+		DBManager dbm = (DBManager)getServletContext().getAttribute("WorldDBManager");
+		
 		/*
 		String uid = getServletContext().getInitParameter("dbuserid");
 		String pwd = getServletContext().getInitParameter("dbuserpwd");
@@ -57,7 +60,8 @@ public class ListAllCities extends HttpServlet {
 					+ "<th>Province</th>"
 					+ "<th>Population</th></tr>");
 			
-			String query = "SELECT * FROM districts ORDER BY id ASC";
+			//String query = "SELECT * FROM districts ORDER BY id ASC";
+			String query = DBWorldQueries.getCitiesByDistrictByPopulation();
 			ResultSet rs = dbm.ExecuteResultSet(query);
 			
 			while ( rs.next() ) {
