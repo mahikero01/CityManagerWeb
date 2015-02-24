@@ -1,6 +1,8 @@
 package company.citymanagerweb.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.ResultSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,13 +49,39 @@ public class ListAllCities extends HttpServlet {
 			if ( !dbm.isConnected() ) {
 				if ( !dbm.openConnection() ) {
 					sb.append("Could not connect to the database");
-				} else {
-					sb.append("connected");
-				}
+				} 
 			}
+			
+			sb.append("<table border=1>"
+					+ "<tr><th>ID</th>"
+					+ "<th>City</th>"
+					+ "<th>Province</th>"
+					+ "<th>Population</th></tr>");
+			
+			String query = "SELECT * FROM districts ORDER BY id ASC";
+			ResultSet rs = dbm.ExecuteResultSet(query);
+			
+			while ( rs.next() ) {
+				int id = rs.getInt("id");
+				String city = rs.getString("city");
+				String province = rs.getString("province");
+				int population = rs.getInt("population");
+				
+				sb.append("<tr><td>" + id + "</td>" 
+						+ "<td>" + city + "</td>"
+						+ "<td>" + province + "</td>"
+						+ "<td>" + population + "</td></tr>");
+			}
+			
+			sb.append("</table>");
+			
 		} catch (Exception e) {
-			// TODO: handle exception
+			sb.append("<h1>ERROR: " + e.getMessage() + "</h1>");
 		}
+		sb.append("</body></html>");
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.println(sb);
 	}
 
 }
