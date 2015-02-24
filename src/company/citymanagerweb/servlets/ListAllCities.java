@@ -26,7 +26,7 @@ public class ListAllCities extends HttpServlet {
      */
     public ListAllCities() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
 	/**
