@@ -54,26 +54,27 @@ public class ListAllCities extends HttpServlet {
 				} 
 			}
 			
-			sb.append("<table border=1>"
-					+ "<tr><th>ID</th>"
-					+ "<th>City</th>"
-					+ "<th>Province</th>"
-					+ "<th>Population</th></tr>");
+			sb.append("<table border=1>" 
+					+ "<tr><td>ID</td><td>NAME</td><td>COUNTRY_CODE</td>"
+					+ "<td>DISTRICT</td><td>POPULATION</td></tr>");
 			
 			//String query = "SELECT * FROM districts ORDER BY id ASC";
 			String query = DBWorldQueries.getCitiesByDistrictByPopulation();
 			ResultSet rs = dbm.ExecuteResultSet(query);
 			
-			while ( rs.next() ) {
-				int id = rs.getInt("id");
-				String city = rs.getString("city");
-				String province = rs.getString("province");
-				int population = rs.getInt("population");
+			while (rs.next())
+			{
+				int id = rs.getInt("ID");
+				String name = rs.getString("NAME");
+				String ctry = rs.getString("CountryCode"); 
+				String dist = rs.getString("District"); 
+				int pop = rs.getInt("Population");
 				
 				sb.append("<tr><td>" + id + "</td>" 
-						+ "<td>" + city + "</td>"
-						+ "<td>" + province + "</td>"
-						+ "<td>" + population + "</td></tr>");
+						+ "<td>" + name + "</td>" 
+						+ "<td>" + ctry + "</td>" +
+						"<td>" + dist + "</td>" +
+						"<td>" + pop + "</td></tr>");
 			}
 			
 			sb.append("</table>");
